@@ -10,10 +10,14 @@ import { Observable } from 'rxjs';
 export class ProductsComponent implements OnInit {
 
   constructor(private ht: DataStorageService) { }
-
-  // test() {
-  //   this.ht.postdata({ "title": " Angular POST Request Example" }).subscribe((data) => console.log(data));
-  // }
+  i=0
+  test() {
+    // this.ht.postData({ "title": " Angular POST Request Example" }).subscribe((data) => console.log(data));
+    this.ht.putData({
+      "id": 2,
+      "title": `Angular${this.i++}`
+    }).subscribe((data) => console.log(data));
+  }
 
 
   recData: any
@@ -44,9 +48,6 @@ export class ProductsComponent implements OnInit {
       this.recData[value].cost = 0
       this.recData[value].hide = 0
     }
-
-
-
 
   }
   ngOnInit(): void {

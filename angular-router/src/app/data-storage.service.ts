@@ -14,7 +14,12 @@ export class DataStorageService {
     return this.ht.get(this.productsUrl);
   }
 
-  // postdata(data: any){
+  putData(data: any){
+    return this.ht.put("http://localhost:3000/cart/2", data)
+    // console.log("asdadsa");
+  }
+
+  // postData(data: any){
   //   return this.ht.post(this.cartUrl, data)
   //   // console.log("asdadsa");
     
