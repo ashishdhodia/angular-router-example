@@ -1,0 +1,69 @@
+<div class="container">
+  <p>products works!</p>
+  <!-- <button class="btn btn-danger" (click)="show()">Click</button> -->
+  <!-- {{ recData }} -->
+  
+<!-- <button class="btn btn-danger mt-2" (click)="test()"></button> -->
+
+  <div class="col mt-5">
+    <div class="row">
+      <div
+        class="card text-dark bg-light mb-3 ms-2"
+        style="max-width: 18rem"
+        *ngFor="let item of recData; let i = index"
+      >
+        <div class="card-header">{{ recData[i].id }}</div>
+        <img
+          class="card-img-top"
+          src= {{recData[i].imgUrl}}
+          alt="Card image"
+          style="width: 100%"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ recData[i].name }}</h5>
+          <h5 class="card-title">Price: ${{ recData[i].price }}</h5>
+          <h6 class="card-title">
+            Quantity Available: {{ recData[i].quntity_avl }}
+          </h6>
+          <h6 class="card-title">
+            Warehouse Stock: {{ recData[i].stock_warehouse }}
+          </h6>
+          <h6 class="card-title">
+            Manufacturing Location: {{ recData[i].manufacturing_location }}
+          </h6>
+          <button
+            type="button"
+            class="btn btn-danger mt-2"
+            style="width: 100%"
+            (click)="addTo(recData[i].id - 1)"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card border-primary mb-3" style="max-width: 73rem">
+        <div
+          class="card-header"
+          [ngClass]="recData[i].hide == 0 ? 'red' : 'blue'"
+          *ngFor="let item of recData; let i = index"
+        >
+          {{ recData[i].name }} | ${{ recData[i].cost }} | Quantity:
+          {{ recData[i].added }} | Available:
+          {{ recData[i].quntity_avl }}
+          <button
+            type="button"
+            class="btn btn-info mt-2"
+            (click)="remove(recData[i].id - 1)"
+          >
+            x
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

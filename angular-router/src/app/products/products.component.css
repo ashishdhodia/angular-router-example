@@ -1,0 +1,15 @@
+.show {
+    color: "black";
+  }
+  
+  .hide {
+    display: "none";
+  }
+  
+  .red {
+      display: none !important;
+  }
+  
+  .blue {
+      color: black;
+  }
